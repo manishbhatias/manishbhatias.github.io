@@ -44,7 +44,7 @@
 
     <section>
         <h1>DIY &amp; Home Lab Projects</h1>
-        <p>Personal projects I build and run at home, each one solving an everyday annoyance. The code is in private repositories.</p>
+        <p>Personal projects I build and run at home, each one solving an everyday annoyance.</p>
         <ol>
             <li>
                 <h4>A faster companion app for my connected car</h4>
@@ -74,7 +74,7 @@
 
                 <br /><br />
 
-                A repurposed Ninja Blocks BeagleBone now runs Debian and the house's background jobs: a Bluetooth LE monitor for the home power-backup system, alerts, automatic filing and follow-up of utility service requests, Mosquitto MQTT for sensors, and private remote access over Tailscale.
+                A repurposed Ninja Blocks BeagleBone now runs Debian and the house's background jobs: a Bluetooth LE monitor for the home power-backup system, alerts to a family Telegram group, automatic filing, follow-up and rating of utility service requests, Mosquitto MQTT for sensors, and the home phone system and EcoFlow automations below. Every app gets private HTTPS at home and away through Tailscale with split-horizon DNS. Its original 433 MHz radio cape now runs custom firmware for raw RF capture.
 
                 <br /><br />
             </li>
@@ -87,7 +87,7 @@
 
                 <br /><br />
 
-                A clean Android TV launcher with big bilingual (English and Hindi) tiles. One tap switches to the right input and controls the set-top box, so one remote and one screen do everything.
+                A clean Android TV launcher with big bilingual (English and Hindi) tiles. One tap switches to the right input and controls the set-top box, so one remote and one screen do everything. Held buttons pass straight through, so fast-forward and rewind behave just like the box's own remote.
 
                 <br /><br />
 
@@ -108,7 +108,46 @@
 
                 <br /><br />
 
-                OpenWrt on my router runs aria2 downloads to attached storage, a WireGuard VPN, local DNS, and a Mumble-based push-to-talk intercom the family uses on their phones.
+                OpenWrt on my router runs aria2 downloads to attached storage, a WireGuard VPN, local DNS, and IPv6 routing tuned so the home phone system can register with the fiber landline.
+
+                <br /><br />
+            </li>
+            <li>
+                <h4>A home phone system and intercom</h4>
+
+                <br />
+
+                <strong>Why:</strong> the family should be able to ring each other around the house and still use the home landline from any phone.
+
+                <br /><br />
+
+                An Asterisk PBX on the home hub replaced our old push-to-talk intercom. Family phones run Linphone with encrypted calls (TLS and SRTP), short extensions, a ring-everyone number and texts between them. A Jio fiber bridge is part of the setup, so any extension can make outbound calls on the home landline. I cross-compiled Asterisk and the bridge for the hub's ARM board.
+
+                <br /><br />
+            </li>
+            <li>
+                <h4>Call Home: a one-tap watch app for my mom</h4>
+
+                <br />
+
+                <strong>Why:</strong> in an emergency, my mom shouldn't have to dig through a phone to call one person and hope they pick up.
+
+                <br /><br />
+
+                A Wear OS app with one big button. It calls over the home phone system, which is faster to connect than a regular call and rings every family phone at once, so whoever is nearest answers. The layout is sized for her large font setting. So far she's used it for everything except an emergency.
+
+                <br /><br />
+            </li>
+            <li>
+                <h4>EcoFlow power automations</h4>
+
+                <br />
+
+                <strong>Why:</strong> the home backup battery and its car-alternator charger shouldn't need babysitting.
+
+                <br /><br />
+
+                Automations that run an EcoFlow Delta 2 and Alternator Charger together. A Go service with a PWA on the home hub works through an ordered rule list: switch between charging the Delta from the car battery and topping the car battery back up, depending on the time of day, and stop when temperature, voltage or charge level crosses a limit. Every rule change gets a dry run before it goes live.
 
                 <br /><br />
             </li>
