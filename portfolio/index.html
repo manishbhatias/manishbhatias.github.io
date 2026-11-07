@@ -44,18 +44,18 @@
 
     <section>
         <h1>DIY &amp; Home Lab Projects</h1>
-        <p>Personal projects I build and run at home, each one solving an everyday annoyance.</p>
+        <p>Things I build and run at home &mdash; each one born from a small, specific annoyance that I refused to just live with.</p>
         <ol>
             <li>
                 <h4>A faster companion app for my connected car</h4>
 
                 <br />
 
-                <strong>Why:</strong> the official app takes about two minutes just to open and show the car's status. Mine shows it instantly.
+                <strong>Why:</strong> the official app takes about two minutes to wake up and admit whether the car is locked. By then I've usually walked back to check by hand. Mine answers before my thumb leaves the screen.
 
                 <br /><br />
 
-                A React PWA served by a single static Go binary that talks to my car's connected service for status and everyday remote actions. It keeps the session alive in the background, so there's no repeated login and no wait. It runs on my home server and ships as OpenWrt packages, a LuCI app and an Android WebView wrapper.
+                I reverse-engineered the car's connected-service API and rebuilt the client myself: a React PWA served by a single static Go binary, no app store, no spinner. The real fight was the session &mdash; the service loved to quietly log me out &mdash; so the binary babysits tokens in the background and renews them before they lapse, which is why it opens instantly instead of re-authenticating every time. It ships as OpenWrt packages, a LuCI page and an Android WebView wrapper, so it runs on my home server and on my phone from the same codebase.
 
                 <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:6px;">
                     <img src="img/car-app-locked.jpg" alt="Car app home screen showing the car locked, fuel, range and door status" loading="lazy" style="width:220px;max-width:46%;height:auto;border-radius:12px;" />
@@ -70,11 +70,11 @@
 
                 <br />
 
-                <strong>Why:</strong> my router was getting overloaded with side jobs, and the old hardware in the cupboard deserved a second life.
+                <strong>Why:</strong> my router was moonlighting as a server and buckling under it, and a dead smart-home box had been sulking in a cupboard for years. Waste not.
 
                 <br /><br />
 
-                A repurposed Ninja Blocks BeagleBone now runs Debian and the house's background jobs: a Bluetooth LE monitor for the home power-backup system, alerts to a family Telegram group, automatic filing, follow-up and rating of utility service requests, Mosquitto MQTT for sensors, and the home phone system and EcoFlow automations below. Every app gets private HTTPS at home and away through Tailscale with split-horizon DNS. Its original 433 MHz radio cape now runs custom firmware for raw RF capture.
+                That box &mdash; an old single-board computer &mdash; now runs Debian and quietly does the unglamorous work: a Bluetooth LE watcher on the home power-backup system, alerts to a family Telegram group, and a little robot that files, chases and rates utility service requests so I don't have to. It also hosts Mosquitto MQTT for the sensors, plus the phone system and the power automations further down this list. Everything gets real HTTPS at home and away over Tailscale with split-horizon DNS. Best part: its original 433&nbsp;MHz radio board now runs my own firmware for raw RF capture, so a gadget that was "retired" is doing more than it ever did new.
 
                 <br /><br />
             </li>
@@ -83,19 +83,19 @@
 
                 <br />
 
-                <strong>Why:</strong> juggling a TV remote, a set-top box remote and input switching was too fiddly for my mom.
+                <strong>Why:</strong> Jio kept redesigning its set-top box interface and stuffing it with cricket banners and ads, so every few weeks my mom would sit down to watch her show and find herself lost in a menu she'd never seen. Senior parents shouldn't need a release-notes briefing to watch TV.
 
                 <br /><br />
 
-                A clean Android TV launcher with big bilingual (English and Hindi) tiles. One tap switches to the right input and controls the set-top box, so one remote and one screen do everything. Held buttons pass straight through, so fast-forward and rewind behave just like the box's own remote. Pluggable set-top box support: the Jio box over Bluetooth, any Android TV box such as Airtel's over Wi-Fi with on-screen pairing, and plain HDMI input switching for anything else.
+                So the TV now boots straight into a clean launcher with big bilingual (English and Hindi) tiles. One tap picks the right input and drives the set-top box, so one remote and one screen do the whole job. Held buttons pass straight through, so fast-forward and rewind feel exactly like the box's own remote &mdash; the detail nobody notices until it's missing. The box support is pluggable: the Jio box over Bluetooth, any Android TV box (Airtel's included) found over Wi-Fi with an on-screen pairing code, and plain HDMI input-switching as the catch-all for anything else. It also adds something the TV never shipped with: a warm night light that kicks in automatically in the evening, so late-night viewing is easier on the eyes and on sleep.
 
                 <br /><br />
 
                 <div style="display:flex;flex-direction:column;gap:12px;margin-top:6px;">
                     <img src="img/maa-tv-home.jpg" alt="Maa TV home screen with a clock and large bilingual app tiles" loading="lazy" style="width:100%;max-width:720px;height:auto;border-radius:8px;" />
-                    <img src="img/maa-tv-admin.jpg" alt="Maa TV admin screen for pairing the set-top box over Bluetooth and picking the TV input" loading="lazy" style="width:100%;max-width:720px;height:auto;border-radius:8px;" />
+                    <img src="img/maa-tv-admin.jpg" alt="Maa TV admin screen for pairing the set-top box and picking the TV input" loading="lazy" style="width:100%;max-width:720px;height:auto;border-radius:8px;" />
                 </div>
-                <small>The admin screen pairs the Jio set-top box over Bluetooth and picks the Sony TV's HDMI input. Device names are placeholders.</small>
+                <small>The admin screen pairs the set-top box and picks the TV's HDMI input. Device names are placeholders.</small>
 
                 <br /><br />
             </li>
@@ -104,11 +104,11 @@
 
                 <br />
 
-                <strong>Why:</strong> stock router firmware is limited and rarely patched.
+                <strong>Why:</strong> stock router firmware is a locked room with the lights dimmed &mdash; limited, rarely patched, and allergic to anything interesting.
 
                 <br /><br />
 
-                OpenWrt on my router runs aria2 downloads to attached storage, a WireGuard VPN, local DNS, and IPv6 routing tuned so the home phone system can register with the fiber landline.
+                So I put OpenWrt on it and gave it a job description: aria2 downloads straight to attached storage, a WireGuard VPN, local DNS, and &mdash; the fiddly bit &mdash; IPv6 routing tuned just so, so the home phone system can actually register with the fiber landline. That last part cost a weekend of packet captures and is the kind of win only I will ever appreciate.
 
                 <br /><br />
             </li>
@@ -117,11 +117,11 @@
 
                 <br />
 
-                <strong>Why:</strong> the family should be able to ring each other around the house and still use the home landline from any phone.
+                <strong>Why:</strong> I wanted the family to ring each other around the house without shouting up the stairs, and still answer the home landline from any phone in any room.
 
                 <br /><br />
 
-                An Asterisk PBX on the home hub replaced our old push-to-talk intercom. Family phones run Linphone with encrypted calls (TLS and SRTP), short extensions, a ring-everyone number and texts between them. A Jio fiber bridge is part of the setup, so any extension can make outbound calls on the home landline. I cross-compiled Asterisk and the bridge for the hub's ARM board.
+                An Asterisk PBX on the hub retired our old push-to-talk intercom. Every family phone runs Linphone with encrypted calls (TLS and SRTP), a short extension, a ring-everyone number, and texting between handsets. A Jio fiber bridge is wired in too, so any extension can place and take calls on the home landline. The sport was getting Asterisk and the bridge cross-compiled for the hub's little ARM board &mdash; software that very much expects to live on a real server, talked into running on a hand-me-down.
 
                 <br /><br />
             </li>
@@ -130,11 +130,11 @@
 
                 <br />
 
-                <strong>Why:</strong> in an emergency, my mom shouldn't have to dig through a phone to call one person and hope they pick up.
+                <strong>Why:</strong> in an emergency, my mom shouldn't have to unlock a phone, find a name and hope that one person picks up.
 
                 <br /><br />
 
-                A Wear OS app with one big button. It calls over the home phone system, which is faster to connect than a regular call and rings every family phone at once, so whoever is nearest answers. The layout is sized for her large font setting. So far she's used it for everything except an emergency.
+                So it's a Wear OS app with exactly one giant button, sized for her large-font setting. It calls over the home phone system &mdash; faster to connect than a normal call &mdash; and rings every family phone at once, so whoever's nearest answers. So far she has used it for ordering tea, asking where I am, and testing that it still works. Everything, in short, except an actual emergency. I'm counting that as a success.
 
                 <br /><br />
             </li>
@@ -143,11 +143,11 @@
 
                 <br />
 
-                <strong>Why:</strong> the home backup battery and its car-alternator charger shouldn't need babysitting.
+                <strong>Why:</strong> a home power station, a big external battery and the charger between them are great until you realize you're the one deciding, by hand, which one should be feeding which. I had better things to do than be a human relay.
 
                 <br /><br />
 
-                Automations that run an EcoFlow Delta 2 and Alternator Charger together. A Go service with a PWA on the home hub works through an ordered rule list: switch between charging the Delta from the car battery and topping the car battery back up, depending on the time of day, and stop when temperature, voltage or charge level crosses a limit. Every rule change gets a dry run before it goes live.
+                Now a Go service with its own PWA runs the EcoFlow Delta 2 and Alternator Charger as a team, working down an ordered list of rules &mdash; first match wins. It flips between charging the Delta from the external battery and topping the external battery back up depending on the time of day, and bails out the moment temperature, voltage or charge level crosses a line I set. Every rule change gets a dry run first, because the one thing worse than babysitting the power is a clever automation confidently doing the wrong thing at 2&nbsp;a.m.
 
                 <br /><br />
             </li>
